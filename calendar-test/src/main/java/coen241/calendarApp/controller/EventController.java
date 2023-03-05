@@ -2,11 +2,13 @@ package coen241.calendarApp.controller;
 
 import coen241.calendarApp.model.RSVP;
 import coen241.calendarApp.model.User;
-import coen241.calendarApp.service.EventService;
+import coen241.calendarApp.model.EventTag;
 import coen241.calendarApp.model.Event;
+import coen241.calendarApp.service.EventService;
 import coen241.calendarApp.service.EventTagService;
 import coen241.calendarApp.service.RSVPService;
 import coen241.calendarApp.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -42,7 +44,7 @@ public class EventController {
         return event;
     }
     @GetMapping("/{id}/rsvp")
-    public List<User> getRSVP(@PathVariable Long eventId) {
+    public List<User> getByRSVP(@PathVariable Long eventId) {
         Event event = eventService.getEvent(eventId);
         if (event == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND); //check eventId is valid
 
@@ -84,6 +86,21 @@ public class EventController {
         if (events == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return events;
     }
+
+    @GetMapping("/tag/{tag}")
+    public List<Event> getByTag(@PathVariable String tag) {
+
+        //TODO: check if tag is valid?
+
+        List<EventTag> eventtags = eventTagService.getEventTagByTag(tag); //a list of eventTags with eventIds
+
+        List<Event> events = new ArrayList<Event>();
+        for (EventTag eventtag : eventtags) {
+            events.add(eventService.getEvent(eventtag.getEventId()));
+        }
+        return events;
+    }
+
 
     @PostMapping("/add")
     public String addEvent(@RequestBody Event event) {

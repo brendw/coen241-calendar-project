@@ -15,9 +15,9 @@ public class RSVP {
     Long userId;
 
     protected RSVP() {}
-    public RSVP(Long event_id, Long user_id) {
-        this.eventId = event_id;
-        this.userId = user_id;
+    public RSVP(Long eventId, Long userId) {
+        this.eventId = eventId;
+        this.userId = userId;
     }
     @Override
     public String toString() {

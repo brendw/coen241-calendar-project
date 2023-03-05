@@ -13,8 +13,8 @@ public interface RSVPRepository extends CrudRepository<RSVP, Integer> {
 
     List<RSVP> findAll();
     RSVP findByRsvpId(long rsvp_id);
-    List<RSVP>  findByUserId(long user_id);
-    List<RSVP>  findByEventId(long event_id);
+    List<RSVP> findByUserId(long user_id);
+    List<RSVP> findByEventId(long event_id);
     void deleteByRsvpId(long rsvp_id);
 
 }

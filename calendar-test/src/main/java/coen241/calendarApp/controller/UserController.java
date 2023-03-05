@@ -46,7 +46,7 @@ public class UserController {
     @GetMapping("/{id}/rsvp")
     public List<Event> getRSVP(@PathVariable Long id) {
         User user = userService.getUser(id);
-        if (user == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND); //check id is valid
+        if (user == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND); //check id is valid user
 
         List<RSVP> rsvps = rsvpService.getRSVPByUserId(id); //a list of rsvps with eventIds
 

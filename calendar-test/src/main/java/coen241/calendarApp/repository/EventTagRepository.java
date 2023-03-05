@@ -12,8 +12,8 @@ import java.util.List;
 public interface EventTagRepository extends CrudRepository<EventTag, Integer> {
 
     List<EventTag> findAll();
-    User findByEventTagId(long event_tag_id);
-    User findByTag(String tag);
-    User findByEventId(long event_id);
+    EventTag findByEventTagId(long event_tag_id);
+    List<EventTag> findByTag(String tag);
+    List<EventTag> findByEventId(long event_id);
     void deleteByEventTagId(long event_tag_id);
 }
