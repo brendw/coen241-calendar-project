@@ -27,6 +27,7 @@ CREATE TABLE Events
     end_time        time NOT NULL,
     valid		   tinyint DEFAULT 1,  #default 1 is valid event
     url			  varchar(150) DEFAULT NULL,
+    tag				varchar(45) DEFAULT NULL,
     
     FOREIGN KEY (publisher) REFERENCES calendarApp.Users (username)
 );

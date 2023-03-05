@@ -29,6 +29,8 @@ public class EventService {
 
     public List<Event> getEventsByDateAndLocation(Date date, String location) { return eventRepository.findByEventDateAndLocation(date,location);}
 
+    public List<Event> getEventsByTag(String tag) { return eventRepository.findByTag(tag); }
+
     public Event saveEvent(Event event) { return eventRepository.save(event); }
 
     //----------------------------------------

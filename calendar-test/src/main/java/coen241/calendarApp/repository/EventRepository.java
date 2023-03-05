@@ -19,6 +19,9 @@ public interface EventRepository extends CrudRepository<Event, Integer> {
     List<Event> findByValid(long valid);
 
     List<Event> findByEventDateAndLocation(Date date, String location);
+
+    List<Event> findByTag(String tag);
+    
     void deleteByEventId(long event_id);
 
     //Event save(Event event); //return new event object with the id

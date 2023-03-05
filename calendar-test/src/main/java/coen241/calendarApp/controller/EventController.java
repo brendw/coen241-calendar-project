@@ -43,7 +43,7 @@ public class EventController {
         if (event == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return event;
     }
-    @GetMapping("/{id}/rsvplist") //see which users are rsvp'ed for this event
+    @GetMapping("/{eventId}/rsvplist") //see which users are rsvp'ed for this event
     public List<User> getByRSVP(@PathVariable Long eventId) {
         Event event = eventService.getEvent(eventId);
         if (event == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND); //check eventId is valid
@@ -92,12 +92,15 @@ public class EventController {
 
         //TODO: check if tag is valid?
 
-        List<EventTag> eventtags = eventTagService.getEventTagByTag(tag); //a list of eventTags with eventIds
-
-        List<Event> events = new ArrayList<Event>();
-        for (EventTag eventtag : eventtags) {
-            events.add(eventService.getEvent(eventtag.getEventId()));
-        }
+//        List<EventTag> eventtags = eventTagService.getEventTagByTag(tag); //a list of eventTags with eventIds
+//
+//        List<Event> events = new ArrayList<Event>();
+//        for (EventTag eventtag : eventtags) {
+//            events.add(eventService.getEvent(eventtag.getEventId()));
+//        }
+//        return events;
+        List<Event> events = eventService.getEventsByTag(tag);
+        if (events == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return events;
     }
 

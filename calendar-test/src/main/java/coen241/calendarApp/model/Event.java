@@ -37,6 +37,8 @@ public class Event {
     Integer valid;
     @Column(name = "url")
     String url;
+    @Column(name = "tag")
+    String tag;
 
 //    ArrayList<Integer> tags; //list of tagIds associated with this event
 //    ArrayList<Integer> RSVPs; //list of userIds of users who are registered
@@ -44,14 +46,15 @@ public class Event {
 
     protected Event() {}
     public Event(String eventName, String publisher, String image, String description, String location,
-            Date eventDate, Time startTime, Time endTime, Integer valid, String url) {
+            Date eventDate, Time startTime, Time endTime, Integer valid, String url, String tag) {
 
     }
 
     @Override
     public String toString() {
         return "Event [eventId=" + eventId + ", eventName=" + eventName + ", publisher=" + publisher + ", location=" + location
-                + ", eventDate=" + eventDate + ", startTime=" + startTime + ", endTime=" + endTime + ", valid=" + valid + ", url=" + url + "]";
+                + ", eventDate=" + eventDate + ", startTime=" + startTime + ", endTime=" + endTime + ", valid=" + valid
+                + ", url=" + url + ",tag=" + tag + "]";
     }
 
 
@@ -130,6 +133,13 @@ public class Event {
         this.valid = valid;
     }
     public String getUrl() {return this.url;}
-    public void setURL(String url) {this.url = url;}
-
+    public void setUrl(String url) {
+        this.url = url;
+    }
+    public String getTag() {
+        return tag;
+    }
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
 }
