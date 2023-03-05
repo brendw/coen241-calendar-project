@@ -11,17 +11,17 @@ public class RSVP {
     Long rsvpId;
     @Column(name = "event_id")
     Long eventId;
-    @Column(name = "user_id")
-    Long userId;
+    @Column(name = "username")
+    String username;
 
     protected RSVP() {}
-    public RSVP(Long eventId, Long userId) {
+    public RSVP(Long eventId, String username) {
         this.eventId = eventId;
-        this.userId = userId;
+        this.username = username;
     }
     @Override
     public String toString() {
-        return String.format( "EventTag[id=%d, event_id='%s', user_id='%s']", rsvpId, eventId, userId);
+        return String.format( "EventTag[id=%d, event_id='%s', username='%s']", rsvpId, eventId, username);
     }
 
     public Long getRsvpId() {
@@ -40,11 +40,11 @@ public class RSVP {
         this.eventId = eventId;
     }
 
-    public Long getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

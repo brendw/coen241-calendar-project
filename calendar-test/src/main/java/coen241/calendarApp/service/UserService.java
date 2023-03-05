@@ -21,6 +21,7 @@ public class UserService {
 
     public List<User> getAllUser() { return userRepository.findAll(); }
     public User getUser(Long id) { return userRepository.findById(id); }
+    public User getUserByUsername(String username) {return userRepository.findByUsername(username);}
 
 
 //    public User updateUser(User user, Long id) {

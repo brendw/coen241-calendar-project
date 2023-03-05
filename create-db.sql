@@ -34,12 +34,12 @@ CREATE TABLE Events
 CREATE TABLE EventTags
 (
     event_tag_id	int UNSIGNED NOT NULL AUTO_INCREMENT primary key,
-    event_id     int UNSIGNED NOT NULL,
-    tag_id       int UNSIGNED NOT NULL,
+    event_id     	int UNSIGNED NOT NULL,
+    tag       		varchar(45) NOT NULL,
     
 	KEY event_id (event_id),
-    KEY tag_id (tag_id),
-    UNIQUE(event_id, tag_id), 
+    KEY tag (tag),
+    UNIQUE(event_id, tag), 
     FOREIGN KEY (event_id) REFERENCES calendarApp.Events (event_id)
 );
 

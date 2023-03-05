@@ -23,7 +23,7 @@ public class RSVPService {
         return rsvpRepository.findAll();
     }
 
-    public List<RSVP> getRSVPByUserId(Long userId) {return rsvpRepository.findByUserId(userId);}
+    public List<RSVP> getRSVPByUsername(String username) {return rsvpRepository.findByUsername(username);}
     public List<RSVP> getRSVPByEventId(Long eventId) {return rsvpRepository.findByEventId(eventId);}
 
 }

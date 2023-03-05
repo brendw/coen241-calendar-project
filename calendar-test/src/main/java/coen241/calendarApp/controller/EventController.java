@@ -43,7 +43,7 @@ public class EventController {
         if (event == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return event;
     }
-    @GetMapping("/{id}/rsvp")
+    @GetMapping("/{id}/rsvplist") //see which users are rsvp'ed for this event
     public List<User> getByRSVP(@PathVariable Long eventId) {
         Event event = eventService.getEvent(eventId);
         if (event == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND); //check eventId is valid
@@ -52,7 +52,7 @@ public class EventController {
 
         List<User> users = new ArrayList<User>();
         for (RSVP rsvp : rsvps) {
-            users.add(userService.getUser(rsvp.getUserId()));
+            users.add(userService.getUserByUsername(rsvp.getUsername()));
         }
         return users;
     }
@@ -107,4 +107,5 @@ public class EventController {
         eventService.saveEvent(event);
         return "Event Added Successfully.";
     }
+
 }

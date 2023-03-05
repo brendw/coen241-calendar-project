@@ -43,16 +43,16 @@ public class UserController {
         if (user == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return user;
     }
-    @GetMapping("/{id}/rsvp")
-    public List<Event> getRSVP(@PathVariable Long id) {
-        User user = userService.getUser(id);
+    @GetMapping("/{username}/rsvp") //see which events this user is rsvp'ed to
+    public List<Event> getRSVP(@PathVariable String username) {
+        User user = userService.getUserByUsername(username);
         if (user == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND); //check id is valid user
 
-        List<RSVP> rsvps = rsvpService.getRSVPByUserId(id); //a list of rsvps with eventIds
+        List<RSVP> rsvps = rsvpService.getRSVPByUsername(username); //a list of rsvps with eventIds
 
-        List<Event> events = new ArrayList<Event>() ;
+        List<Event> events = new ArrayList<>() ;
         for (RSVP rsvp : rsvps) {
-            events.add(eventService.getEvent(rsvp.getEventId()));
+            events.add(eventService.getEvent(rsvp.getEventId())); //convert to event objects
         }
 
         return events;
