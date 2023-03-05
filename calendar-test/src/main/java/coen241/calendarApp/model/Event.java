@@ -18,8 +18,8 @@ public class Event {
     Long eventId;
     @Column(name = "event_name")
     String eventName;
-    @Column(name = "publisher_id")
-    int publisherId;
+    @Column(name = "publisher")
+    String publisher;
     @Column(name = "image")
     String image; //url
     @Column(name = "description")
@@ -42,14 +42,14 @@ public class Event {
 
 
     protected Event() {}
-    public Event(String eventName, int publisherId, String image, String description, String location,
+    public Event(String eventName, String publisher, String image, String description, String location,
             Date eventDate, Time startTime, Time endTime, Integer valid) {
 
     }
 
     @Override
     public String toString() {
-        return "Event [eventId=" + eventId + ", eventName=" + eventName + ", publisherId=" + publisherId + ", location=" + location
+        return "Event [eventId=" + eventId + ", eventName=" + eventName + ", publisher=" + publisher + ", location=" + location
                 + ", eventDate=" + eventDate + ", startTime=" + startTime + ", endTime=" + endTime + ", valid=" + valid + "]";
     }
 
@@ -69,12 +69,12 @@ public class Event {
         this.eventName = eventName;
     }
 
-    public int getPublisherId() {
-        return publisherId;
+    public String getPublisher() {
+        return publisher;
     }
 
-    public void setPublisherId(int publisherId) {
-        this.publisherId = publisherId;
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 
     public String getImage() {

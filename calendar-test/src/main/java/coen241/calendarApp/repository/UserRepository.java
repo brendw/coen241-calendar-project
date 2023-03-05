@@ -4,10 +4,12 @@ import coen241.calendarApp.model.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 
+@Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
 
     List<User> findAll();
@@ -16,8 +18,10 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     User findByEmail(String email);
     void deleteById(Long id);
 
-    @Query("SELECT u.password FROM Users u WHERE u.username = :username")
-    public String getUserPassword(@Param("username") String username);
+    User save(User user); //return new user with object with the id
+
+//    @Query("SELECT u.password FROM coen241.calendarApp.model.User u WHERE username = :username")
+//    public String getUserPassword(@Param("username") String username);
 
 //    @Query("SELECT u.password FROM com.example.calendartest.model.User u WHERE u.username = :username")
 //    public String getUserPassword(@Param("username") String username);
@@ -25,8 +29,6 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 //    @Modifying
 //    @Query(value="INSERT INTO Users (username, password, email) values (:username, :password, :email)", nativeQuery = true)
 //    void saveUser(@Param("username") String username, @Param("password") String password, @Param("email") String email);
-
-
 
 
 //    @Modifying(clearAutomatically = true)

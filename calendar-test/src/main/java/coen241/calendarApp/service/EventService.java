@@ -20,9 +20,11 @@ public class EventService {
         return eventRepository.findByEventId(eventId);
     }
     public List<Event> getEventsByLocation(String location) { return eventRepository.findByLocation(location);}
-    public List<Event> getEventsByPublisherId(Long publisherId) { return eventRepository.findByPublisherId(publisherId);}
+    public List<Event> getEventsByPublisher(String publisher) { return eventRepository.findByPublisher(publisher);}
     public List<Event> getEventsByEventDate(Date date) { return eventRepository.findByEventDate(date);}
     public List<Event> getEventsByValid(int valid) { return eventRepository.findByValid(valid);}
+
+    public List<Event> getEventsByDateAndLocation(Date date, String location) { return eventRepository.findByEventDateAndLocation(date,location);}
     public void addEvent(Event event) { eventRepository.save(event); }
 
 }

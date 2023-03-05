@@ -2,19 +2,23 @@ package coen241.calendarApp.repository;
 
 import coen241.calendarApp.model.Event;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
 import java.util.List;
 
 
+@Repository
 public interface EventRepository extends CrudRepository<Event, Integer> {
 
     List<Event> findAll();
     Event findByEventId(long eventId);
-    List<Event> findByPublisherId(long publisherId);
+    List<Event> findByPublisher(String publisher);
     List<Event> findByLocation(String location);
     List<Event> findByEventDate(Date date);
     List<Event> findByValid(long valid);
+
+    List<Event> findByEventDateAndLocation(Date date, String location);
 
 //    @Query("SELECT e FROM com.example.calendartest.model.Event e WHERE e.startTime BETWEEN ?1 AND ?2")
 //    List<Event> findByLevelBetween(int start, int end);

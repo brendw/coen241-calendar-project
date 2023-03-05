@@ -16,5 +16,10 @@ public class CalendarTestController {
     public String hello() {
         return "Hello World ~";
     }
+
+    @GetMapping("/hi")
+    public String hi() {
+        return "HI!!!!";
+    }
 }
 
