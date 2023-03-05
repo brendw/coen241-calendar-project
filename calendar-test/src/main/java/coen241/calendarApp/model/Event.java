@@ -1,12 +1,11 @@
 package coen241.calendarApp.model;
 
-//import org.springframework.data.relational.core.mapping.Table;
-//import javax.persistence.*;
 import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 @Entity
@@ -54,6 +53,15 @@ public class Event {
         return "Event [eventId=" + eventId + ", eventName=" + eventName + ", publisher=" + publisher + ", location=" + location
                 + ", eventDate=" + eventDate + ", startTime=" + startTime + ", endTime=" + endTime + ", valid=" + valid + ", url=" + url + "]";
     }
+
+
+//    public void formatTime() {
+//        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss a");
+//        String new_time = timeFormat.format(this.startTime);
+//    }
+
+
+    //---------------------------------------------------------------------------
 
     public Long getEventId() {
         return eventId;

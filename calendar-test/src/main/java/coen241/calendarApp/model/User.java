@@ -1,9 +1,5 @@
 package coen241.calendarApp.model;
 
-import org.springframework.data.domain.Persistable;
-
-//import org.springframework.data.relational.core.mapping.Table;
-//import javax.persistence.*;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;

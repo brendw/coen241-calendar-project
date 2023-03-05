@@ -12,13 +12,14 @@ import java.util.List;
 public interface EventRepository extends CrudRepository<Event, Integer> {
 
     List<Event> findAll();
-    Event findByEventId(long eventId);
+    Event findByEventId(long event_id);
     List<Event> findByPublisher(String publisher);
     List<Event> findByLocation(String location);
     List<Event> findByEventDate(Date date);
     List<Event> findByValid(long valid);
 
     List<Event> findByEventDateAndLocation(Date date, String location);
+    void deleteByEventId(long event_id);
 
     //Event save(Event event); //return new event object with the id
 

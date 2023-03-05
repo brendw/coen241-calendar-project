@@ -1,15 +1,15 @@
 package coen241.calendarApp.model;
 import java.util.ArrayList;
 
-public class EventCalendar {
+public class CalendarApp {
 
-    ArrayList<Integer> currentEvents;
-    ArrayList<Integer> pastEvents; //including deleted events
+//    ArrayList<Integer> currentEvents;
+//    ArrayList<Integer> pastEvents; //including deleted events
 
 //    ConnectDB db;
 
     // constructor
-    public EventCalendar() {
+    public CalendarApp() {
 
 //        db = new ConnectDB();
 
