@@ -1,9 +1,7 @@
 package coen241.calendarApp.repository;
 
 import coen241.calendarApp.model.User;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,7 +16,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     User findByEmail(String email);
     void deleteById(Long id);
 
-    User save(User user); //return new user with object with the id
+    //User save(User user); //return new user object with the id
 
 //    @Query("SELECT u.password FROM coen241.calendarApp.model.User u WHERE username = :username")
 //    public String getUserPassword(@Param("username") String username);

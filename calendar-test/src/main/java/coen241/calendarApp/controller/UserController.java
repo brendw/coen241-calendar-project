@@ -3,6 +3,7 @@ package coen241.calendarApp.controller;
 import coen241.calendarApp.model.User;
 import coen241.calendarApp.service.UserService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class UserController {
 
     private final UserService userService;
+    @Autowired
     public UserController(UserService userService) { this.userService = userService; }
 
 
@@ -32,30 +34,10 @@ public class UserController {
         return user;
     }
 
-//    @PathMapping(value="/users/add")
-//    public String addUser()
-//    {
-//        //userService.saveUser(user);
-//        return "Add user ~";
-//    }
-    @RequestMapping("/goodbye")
-    public String helloWorld(){
-        return "Goodbye from Spring Boot";
-    }
-
-    @PostMapping("/testAdd")
-    public String addUser() {
-        System.out.println("inside testAdd");
-        User user = new User("intellij", "password", "intellij@intellij.com");
-        System.out.println(user);
-        User new_user = userService.saveUser(user);
-        return "added a user";
-    }
-
-    @PostMapping("/addTest")
+    @PostMapping("/add")
     public String addUser(@RequestBody User user) {
-        //userService.saveUser(user);
-        return "user Added Successfully.";
+        userService.saveUser(user);
+        return "User Added Successfully.";
     }
 
 

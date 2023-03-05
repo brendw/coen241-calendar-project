@@ -2,7 +2,9 @@ package coen241.calendarApp.service;
 
 import coen241.calendarApp.model.Event;
 import coen241.calendarApp.repository.EventRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.util.List;
@@ -10,10 +12,10 @@ import java.util.List;
 @Service
 public class EventService {
 
+
     private final EventRepository eventRepository;
-    public EventService(EventRepository eventRepository) {
-        this.eventRepository = eventRepository;
-    }
+    @Autowired
+    public EventService(EventRepository eventRepository) { this.eventRepository = eventRepository; }
 
     public List<Event> getAllEvent() { return eventRepository.findAll();}
     public Event getEvent(Long eventId) {
@@ -25,6 +27,7 @@ public class EventService {
     public List<Event> getEventsByValid(int valid) { return eventRepository.findByValid(valid);}
 
     public List<Event> getEventsByDateAndLocation(Date date, String location) { return eventRepository.findByEventDateAndLocation(date,location);}
-    public void addEvent(Event event) { eventRepository.save(event); }
+
+    public Event saveEvent(Event event) { return eventRepository.save(event); }
 
 }

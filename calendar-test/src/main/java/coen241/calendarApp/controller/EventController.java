@@ -1,7 +1,9 @@
 package coen241.calendarApp.controller;
 
+import coen241.calendarApp.model.User;
 import coen241.calendarApp.service.EventService;
 import coen241.calendarApp.model.Event;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -14,7 +16,7 @@ import java.util.List;
 public class EventController {
 
     private final EventService eventService;
-
+    @Autowired
     public EventController(EventService eventService) {
         this.eventService = eventService;
     }
@@ -61,10 +63,9 @@ public class EventController {
 
 
 
-
-//    @RequestMapping(value="/add-event", method= RequestMethod.POST)
-//    public void addEvent(@RequestBody Event event)
-//    {
-//        eventService.addEvent(event);
-//    }
+    @PostMapping("/add")
+    public String addEvent(@RequestBody Event event) {
+        eventService.saveEvent(event);
+        return "Event Added Successfully.";
+    }
 }

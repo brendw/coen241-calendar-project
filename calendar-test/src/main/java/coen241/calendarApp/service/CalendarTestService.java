@@ -6,11 +6,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalendarTestService  {
 
-    private final EventRepository calendarRepository;
-
-    public CalendarTestService(EventRepository eventRepository) {
-        this.calendarRepository = eventRepository;
-    }
+//    private final EventRepository calendarRepository;
+//
+//    public CalendarTestService(EventRepository eventRepository) {
+//        this.calendarRepository = eventRepository;
+//    }
 
 //    public Iterable<User> get() {
 //        return calendarRepository.findAll();

@@ -1,10 +1,11 @@
 package coen241.calendarApp.model;
 
-import coen241.calendarApp.repository.UserRepository;
 import org.springframework.data.domain.Persistable;
-import org.springframework.data.relational.core.mapping.Table;
 
-import javax.persistence.*;
+//import org.springframework.data.relational.core.mapping.Table;
+//import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,15 +14,15 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    Long id;
-    @Column(name = "username", nullable = false)
-    String username;
-    @Column(name = "password", nullable = false, updatable = true)
-    String password;
-    @Column(name = "email", nullable = false)
-    String email;
+    private Long id;
+    @Column(name = "username", nullable = false, unique = true)
+    private String username;
+    @Column(name = "password", nullable = false)
+    private String password;
+    @Column(name = "email", nullable = false, unique = true)
+    private String email;
 
 //    @OneToMany
 //    @JoinColumn(name="user_id")
@@ -32,7 +33,7 @@ public class User {
 //    List postedEvents = new ArrayList();
 
 
-    User() {}
+    protected User() {}
 
     public User(String username, String password, String email) {
         this.username = username;

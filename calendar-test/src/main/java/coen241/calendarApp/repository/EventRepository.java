@@ -20,6 +20,8 @@ public interface EventRepository extends CrudRepository<Event, Integer> {
 
     List<Event> findByEventDateAndLocation(Date date, String location);
 
+    //Event save(Event event); //return new event object with the id
+
 //    @Query("SELECT e FROM com.example.calendartest.model.Event e WHERE e.startTime BETWEEN ?1 AND ?2")
 //    List<Event> findByLevelBetween(int start, int end);
 
