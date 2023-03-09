@@ -1,6 +1,7 @@
 package coen241.calendarApp.repository;
 
 import coen241.calendarApp.model.Event;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -26,8 +27,8 @@ public interface EventRepository extends CrudRepository<Event, Integer> {
 
     //Event save(Event event); //return new event object with the id
 
-//    @Query("SELECT e FROM com.example.calendartest.model.Event e WHERE e.startTime BETWEEN ?1 AND ?2")
-//    List<Event> findByLevelBetween(int start, int end);
+    @Query(value = "SELECT * FROM calendarApp.Events e WHERE e.event_date IN ?1 OR e.location in ?2 OR e.tag in ?3", nativeQuery = true)
+    List<Event> findByEventDateAndLocationAndTag(List<String> dates, List<String> locations, List<String> tags);
 
 //    @Transactional
 //    @Modifying

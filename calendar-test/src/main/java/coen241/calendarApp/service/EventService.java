@@ -8,7 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class EventService {
@@ -32,6 +34,11 @@ public class EventService {
     public List<Event> getEventsByTag(String tag) { return eventRepository.findByTag(tag); }
 
     public Event saveEvent(Event event) { return eventRepository.save(event); }
+
+    public List<Event> getEventsByParams(Map<String,List<String>> params) {
+
+        return eventRepository.findByEventDateAndLocationAndTag(params.get("event_date"), params.get("location"), params.get("tag"));
+    }
 
     //----------------------------------------
 

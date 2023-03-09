@@ -17,6 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
@@ -105,6 +106,11 @@ public class EventController {
         return events;
     }
 
+
+    @GetMapping("/searchEvents")
+    public List<Event> getByMultiParams(@RequestBody Map<String,List<String>> params){
+        return eventService.getEventsByParams(params);
+    }
 
     @PostMapping("/add")
     public String addEvent(@RequestBody Event event) {
