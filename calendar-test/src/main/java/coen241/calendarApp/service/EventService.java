@@ -37,7 +37,16 @@ public class EventService {
 
     public List<Event> getEventsByParams(Map<String,List<String>> params) {
 
-        return eventRepository.findByEventDateAndLocationAndTag(params.get("event_date"), params.get("location"), params.get("tag"));
+        List<String> dates = params.get("event_date");
+        List<String> locations = params.get("location");
+        List<String> tags = params.get("tag");
+
+        if (dates.size()==0 && locations.size()==0 && tags.size()==0) {
+            return eventRepository.findAll(); // if dictionary params is empty, return all events instead
+        }
+        else {
+            return eventRepository.findByEventDateAndLocationAndTag(dates, locations, tags); //search by params
+        }
     }
 
     //----------------------------------------

@@ -14,30 +14,18 @@ import java.util.*;
 public class EventServiceTest {
 
     private final EventRepository eventRepository;
-//    @Autowired
+    @Autowired
     public EventServiceTest(EventRepository eventRepository) { this.eventRepository = eventRepository; }
 
     @Test
-    public List<Event> getEventsByParamsTest() {
+    public List<Event> getEventsByParamsMethod() {
 
         Map<String, List<String>> params = new HashMap<>();
-        params.put("Date", new ArrayList<>(Arrays.asList("2023-02-22")));
-        params.put("Location", new ArrayList<>(Arrays.asList("Clubs")));
-        params.put("Tag", new ArrayList<>());
+        params.put("event_date", new ArrayList<>(Arrays.asList("2023-02-22")));
+        params.put("location", new ArrayList<>(Arrays.asList("Clubs")));
+        params.put("tag", new ArrayList<>());
 
-        List<String> dates = new ArrayList<String>();
-        List<String> locations = new ArrayList<String>();
-        List<String> tags = new ArrayList<String>();
-
-        Iterator<Map.Entry<String, List<String>>> itr = params.entrySet().iterator();
-        while(itr.hasNext()) {
-            Map.Entry<String, List<String>> entry = itr.next();
-            if (entry.getKey()=="Date") { dates = entry.getValue();}
-            else if (entry.getKey()=="Location") { locations = entry.getValue();}
-            else if (entry.getKey()=="Tag") { tags = entry.getValue();}
-        }
-
-        return eventRepository.findByEventDateAndLocationAndTag(dates, locations, tags);
+        return eventRepository.findByEventDateAndLocationAndTag(params.get("event_date"), params.get("location"), params.get("tag"));
     }
 
 }

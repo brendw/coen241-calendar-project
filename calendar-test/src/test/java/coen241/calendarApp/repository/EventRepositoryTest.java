@@ -10,8 +10,6 @@ import java.util.List;
 
 @SpringBootTest
 public class EventRepositoryTest {
-
-
     private final EventRepository eventRepository;
     @Autowired
     public EventRepositoryTest(EventRepository eventRepository) { this.eventRepository = eventRepository;  }
