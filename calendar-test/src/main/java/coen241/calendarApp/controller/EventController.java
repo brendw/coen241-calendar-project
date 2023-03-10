@@ -106,8 +106,8 @@ public class EventController {
         return events;
     }
 
-
-    @GetMapping("/searchEvents")
+    @CrossOrigin
+    @PostMapping("/searchEvents")
     public List<Event> getByMultiParams(@RequestBody Map<String,List<String>> params){
         return eventService.getEventsByParams(params);
     }
