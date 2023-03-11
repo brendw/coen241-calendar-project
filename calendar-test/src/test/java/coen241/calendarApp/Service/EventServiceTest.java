@@ -3,7 +3,6 @@ package coen241.calendarApp.Service;
 import coen241.calendarApp.model.Event;
 import coen241.calendarApp.repository.EventRepository;
 import coen241.calendarApp.repository.UserRepository;
-import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

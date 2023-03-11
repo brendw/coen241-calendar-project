@@ -1,4 +1,4 @@
-drop database calendarApp;
+drop database if exists calendarApp;
 
 create database calendarApp;
 use calendarApp;
