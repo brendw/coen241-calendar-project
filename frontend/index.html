@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <meta
+			http-equiv="Content-Security-Policy"
+			content="upgrade-insecure-requests"
+		/> -->
+
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700"
+			rel="stylesheet"
+		/>
+		<link
+			rel="shortcut icon"
+			href="src/img/broncoIcon.png"
+			type="image/x-icon"
+		/>
+
+		<link rel="stylesheet" href="src/sass/main.scss" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+		/>
+
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+		/>
+
+		<script
+			src="https://kit.fontawesome.com/6a64dac020.js"
+			crossorigin="anonymous"
+		></script>
+
+		<script
+			type="text/javascript"
+			src="https://cdn.jsdelivr.net/npm/toastify-js"
+		></script>
+
+		<script
+			src="https://kit.fontawesome.com/6a64dac020.js"
+			crossorigin="anonymous"
+		></script>
+
+		<script defer src="src/js/controller.js" type="module"></script>
+
+		<title>Bronco Event</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<header class="header">
+				<a href="/">
+					<img
+						src="src/img/broncoLogo.png"
+						alt="Logo"
+						class="header__logo"
+					/>
+				</a>
+
+				<form class="search">
+					<input
+						type="text"
+						class="search__field"
+						placeholder="Search events in SCU..."
+					/>
+					<button class="btn search__btn">
+						<svg class="search__icon">
+							<use href="src/img/icons.svg#icon-search"></use>
+						</svg>
+						<span>Search</span>
+					</button>
+				</form>
+
+				<nav class="nav">
+					<ul class="nav__list">
+						<li class="nav__item">
+							<button class="nav__btn nav__btn--add-recipe">
+								<svg class="nav__icon">
+									<use
+										href="src/img/icons.svg#icon-edit"
+									></use>
+								</svg>
+								<span>Post event</span>
+							</button>
+						</li>
+						<li class="nav__item">
+							<button class="nav__btn nav__btn--bookmarks">
+								<!-- <svg class="nav__icon">
+									<use
+										href="src/img/icons.svg#icon-bookmark"
+									></use>
+								</svg>
+								<span>My event</span> -->
+								<svg class="nav__icon">
+									<use
+										href="src/img/icons.svg#icon-user"
+									></use>
+								</svg>
+								<span>Log In</span>
+							</button>
+							<div class="bookmarks">
+								<ul class="bookmarks__list">
+									<div class="message">
+										<div>
+											<svg>
+												<use
+													href="src/img/icons.svg#icon-smile"
+												></use>
+											</svg>
+										</div>
+										<p>
+											No event registered yet. Find a nice
+											event and join it!
+										</p>
+									</div>
+
+									<!-- <li class="preview">
+                    <a class="preview__link" href="#23456">
+                      <figure class="preview__fig">
+                        <img src="src/img/test-1.jpg" alt="Test" />
+                      </figure>
+                      <div class="preview__data">
+                        <h4 class="preview__name">
+                          Pasta with Tomato Cream ...
+                        </h4>
+                        <p class="preview__publisher">The Pioneer Woman</p>
+                      </div>
+                    </a>
+                  </li> -->
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</header>
+			<div>
+				<div class="calendar-container"></div>
+				<!-- <div class="search-results">
+					<ul class="results"> -->
+				<!-- 
+          <li class="preview">
+            <a class="preview__link preview__link--active" href="#23456">
+              <figure class="preview__fig">
+                <img src="src/img/test-1.jpg" alt="Test" />
+              </figure>
+              <div class="preview__data">
+                <h4 class="preview__title">Pasta with Tomato Cream ...</h4>
+                <p class="preview__publisher">The Pioneer Woman</p>
+                <div class="preview__user-generated">
+                  <svg>
+                    <use href="src/img/icons.svg#icon-user"></use>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </li>
+           -->
+				<!-- </ul>
+				</div> -->
+				<div class="checkbox-container">
+					<div class="h2 checkbox-title">Show only</div>
+					<div class="checkboxs">
+						<!-- <input class="checkbox" type="checkbox" id="box-1" />
+						<label class="checkbox" for="box-1"
+							>Online events</label
+						>
+
+						<input class="checkbox" type="checkbox" id="box-2" />
+						<label class="checkbox" for="box-2">Athletics</label>
+
+						<input class="checkbox" type="checkbox" id="box-3" />
+						<label class="checkbox" for="box-3"
+							>Jesuit School of Theology</label
+						>
+						<input class="checkbox" type="checkbox" id="box-4" />
+						<label class="checkbox" for="box-4"
+							>Online events</label
+						>
+
+						<input class="checkbox" type="checkbox" id="box-5" />
+						<label class="checkbox" for="box-5">Athletics</label>
+
+						<input class="checkbox" type="checkbox" id="box-6" />
+						<label class="checkbox" for="box-6"
+							>Jesuit School of Theology</label
+						>
+						<input class="checkbox" type="checkbox" id="box-7" />
+						<label class="checkbox" for="box-7"
+							>Online events</label
+						>
+
+						<input class="checkbox" type="checkbox" id="box-8" />
+						<label class="checkbox" for="box-8">Athletics</label>
+
+						<input class="checkbox" type="checkbox" id="box-9" />
+						<label class="checkbox" for="box-9"
+							>Jesuit School of Theology</label
+						> -->
+					</div>
+				</div>
+			</div>
+
+			<div class="recipe">
+				<div class="result-header">
+					<div class="two">
+						<h1>
+							<div class="result-header-date">
+								February 23, 2023
+							</div>
+							<!-- <div>
+								<span class="header-low-left">Hello World</span>
+							</div> -->
+						</h1>
+					</div>
+				</div>
+				<div class="result-container">
+					<div class="card-container">
+						<div class="message">
+							<div>
+								<svg>
+									<use
+										href="src/img/icons.svg#icon-smile"
+									></use>
+								</svg>
+							</div>
+							<p>
+								Start by searching for an event in SCU. Have
+								fun!
+							</p>
+						</div>
+					</div>
+
+					<!-- <div class="spinner">
+          <svg>
+            <use href="src/img/icons.svg#icon-loader"></use>
+          </svg>
+        </div> -->
+
+					<!-- <div class="error">
+            <div>
+              <svg>
+                <use href="src/img/icons.svg#icon-alert-triangle"></use>
+              </svg>
+            </div>
+            <p>No recipes found for your query. Please try again!</p>
+          </div> -->
+
+					<!--
+        <figure class="recipe__fig">
+          <img src="src/img/test-1.jpg" alt="Tomato" class="recipe__img" />
+          <h1 class="recipe__title">
+            <span>Pasta with tomato cream sauce</span>
+          </h1>
+        </figure>
+
+        <div class="recipe__details">
+          <div class="recipe__info">
+            <svg class="recipe__info-icon">
+              <use href="src/img/icons.svg#icon-clock"></use>
+            </svg>
+            <span class="recipe__info-data recipe__info-data--minutes">45</span>
+            <span class="recipe__info-text">minutes</span>
+          </div>
+          <div class="recipe__info">
+            <svg class="recipe__info-icon">
+              <use href="src/img/icons.svg#icon-users"></use>
+            </svg>
+            <span class="recipe__info-data recipe__info-data--people">4</span>
+            <span class="recipe__info-text">servings</span>
+
+            <div class="recipe__info-buttons">
+              <button class="btn--tiny btn--increase-servings">
+                <svg>
+                  <use href="src/img/icons.svg#icon-minus-circle"></use>
+                </svg>
+              </button>
+              <button class="btn--tiny btn--increase-servings">
+                <svg>
+                  <use href="src/img/icons.svg#icon-plus-circle"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="recipe__user-generated">
+            <svg>
+              <use href="src/img/icons.svg#icon-user"></use>
+            </svg>
+          </div>
+          <button class="btn--round">
+            <svg class="">
+              <use href="src/img/icons.svg#icon-bookmark-fill"></use>
+            </svg>
+          </button>
+        </div>
+
+        <div class="recipe__ingredients">
+          <h2 class="heading--2">Recipe ingredients</h2>
+          <ul class="recipe__ingredient-list">
+            <li class="recipe__ingredient">
+              <svg class="recipe__icon">
+                <use href="src/img/icons.svg#icon-check"></use>
+              </svg>
+              <div class="recipe__quantity">1000</div>
+              <div class="recipe__description">
+                <span class="recipe__unit">g</span>
+                pasta
+              </div>
+            </li>
+
+            <li class="recipe__ingredient">
+              <svg class="recipe__icon">
+                <use href="src/img/icons.svg#icon-check"></use>
+              </svg>
+              <div class="recipe__quantity">0.5</div>
+              <div class="recipe__description">
+                <span class="recipe__unit">cup</span>
+                ricotta cheese
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="recipe__directions">
+          <h2 class="heading--2">How to cook it</h2>
+          <p class="recipe__directions-text">
+            This recipe was carefully designed and tested by
+            <span class="recipe__publisher">The Pioneer Woman</span>. Please check out
+            directions at their website.
+          </p>
+          <a
+            class="btn--small recipe__btn"
+            href="http://thepioneerwoman.com/cooking/pasta-with-tomato-cream-sauce/"
+            target="_blank"
+          >
+            <span>Directions</span>
+            <svg class="search__icon">
+              <use href="src/img/icons.svg#icon-arrow-right"></use>
+            </svg>
+          </a>
+        </div>
+        -->
+				</div>
+				<div class="pagination">
+					<!-- <button class="btn--inline pagination__btn--prev">
+<svg class="search__icon">
+  <use href="src/img/icons.svg#icon-arrow-left"></use>
+</svg>
+<span>Page 1</span>
+</button>
+<button class="btn--inline pagination__btn--next">
+<span>Page 3</span>
+<svg class="search__icon">
+  <use href="src/img/icons.svg#icon-arrow-right"></use>
+</svg>
+</button> -->
+				</div>
+			</div>
+		</div>
+
+		<div class="overlay hidden"></div>
+		<div class="add-recipe-window hidden">
+			<button class="btn--close-modal">&times;</button>
+			<form class="upload">
+				<!-- <div class="upload__column">
+					<h3 class="upload__heading">Recipe data</h3>
+					<label>Title</label>
+					<input value="TEST" required name="title" type="text" />
+					<label>URL</label>
+					<input value="TEST" required name="sourceUrl" type="text" />
+					<label>Image URL</label>
+					<input value="TEST" required name="image" type="text" />
+					<label>Publisher</label>
+					<input value="TEST" required name="publisher" type="text" />
+					<label>Prep time</label>
+					<input
+						value="23"
+						required
+						name="cookingTime"
+						type="number"
+					/>
+					<label>Servings</label>
+					<input value="23" required name="servings" type="number" />
+				</div>
+
+				<div class="upload__column">
+					<h3 class="upload__heading">Ingredients</h3>
+					<label>Ingredient 1</label>
+					<input
+						value="0.5,kg,Rice"
+						type="text"
+						required
+						name="ingredient-1"
+						placeholder="Format: 'Quantity,Unit,Description'"
+					/>
+					<label>Ingredient 2</label>
+					<input
+						value="1,,Avocado"
+						type="text"
+						name="ingredient-2"
+						placeholder="Format: 'Quantity,Unit,Description'"
+					/>
+					<label>Ingredient 3</label>
+					<input
+						value=",,salt"
+						type="text"
+						name="ingredient-3"
+						placeholder="Format: 'Quantity,Unit,Description'"
+					/>
+					<label>Ingredient 4</label>
+					<input
+						type="text"
+						name="ingredient-4"
+						placeholder="Format: 'Quantity,Unit,Description'"
+					/>
+					<label>Ingredient 5</label>
+					<input
+						type="text"
+						name="ingredient-5"
+						placeholder="Format: 'Quantity,Unit,Description'"
+					/>
+					<label>Ingredient 6</label>
+					<input
+						type="text"
+						name="ingredient-6"
+						placeholder="Format: 'Quantity,Unit,Description'"
+					/>
+				</div>
+
+				<button class="btn upload__btn">
+					<svg>
+						<use href="src/img/icons.svg#icon-upload-cloud"></use>
+					</svg>
+					<span>Upload</span>
+				</button> -->
+
+				<div class="upload-container">
+					<div class="upload-header">Registration</div>
+
+					<form action="#">
+						<div class="upload-form first">
+							<div class="details personal">
+								<div class="title">Host Contact Details</div>
+
+								<div class="fields">
+									<div class="input-field">
+										<label>Host Username</label>
+										<input
+											type="text"
+											placeholder="Enter host name"
+											name="hostName"
+											required
+										/>
+									</div>
+
+									<div class="input-field">
+										<label>Host Email</label>
+										<input
+											type="text"
+											placeholder="Enter host email"
+											name="hostEmail"
+											required
+										/>
+									</div>
+
+									<div class="input-field">
+										<label>Mobile Number</label>
+										<input
+											type="number"
+											placeholder="Enter mobile number"
+											name="hostMobile"
+											required
+										/>
+									</div>
+								</div>
+							</div>
+
+							<div class="details ID">
+								<span class="title">Event Details</span>
+
+								<div class="fields">
+									<div class="input-field">
+										<label>Event Name</label>
+										<input
+											type="text"
+											placeholder="Enter Event Name"
+											name="eventName"
+											required
+										/>
+									</div>
+
+									<div class="input-field">
+										<label>Event Location</label>
+										<select name="location" required>
+											<option value="" disabled selected>
+												Select Location
+											</option>
+											<option value="SCDI Lobby">
+												SCDI Lobby
+											</option>
+											<option value="Library">
+												Library
+											</option>
+											<option value="SCU Church">
+												SCU Church
+											</option>
+											<option value="Lucas Hall">
+												Lucas Hall
+											</option>
+											<option value="Leavey Center">
+												Leavey Center
+											</option>
+										</select>
+									</div>
+
+									<div class="input-field">
+										<label>Event Date</label>
+										<input
+											type="date"
+											name="date"
+											placeholder="Enter your issued date"
+											required
+										/>
+									</div>
+
+									<div class="input-field">
+										<label>Event Start Time</label>
+										<input
+											type="time"
+											placeholder="Enter Event Start Time"
+											name="startTime"
+											required
+										/>
+									</div>
+
+									<div class="input-field">
+										<label>Event End Time</label>
+										<input
+											type="time"
+											placeholder="Enter Event End Time"
+											name="endTime"
+											required
+										/>
+									</div>
+
+									<div class="input-field">
+										<label>Event Image</label>
+										<input
+											type="url"
+											placeholder="Enter Image URL"
+											name="image"
+											required
+										/>
+									</div>
+
+									<div class="input-field">
+										<label>Event Type</label>
+										<select name="tag" required>
+											<option value="" disabled selected>
+												Select Event Type
+											</option>
+											<option value="Sports">
+												Sports
+											</option>
+											<option value="Art&Music">
+												Art & Music
+											</option>
+											<option value="Academic">
+												Academic
+											</option>
+											<option value="Party">Party</option>
+											<option value="Theology">
+												Theology
+											</option>
+											<option value="Online">
+												Online
+											</option>
+										</select>
+									</div>
+
+									<div
+										class="input-field input-field-description"
+									>
+										<label>Event Description</label>
+										<input
+											type="text"
+											placeholder="Enter Event Description"
+											name="description"
+											required
+										/>
+									</div>
+								</div>
+
+								<button class="btn upload__btn">
+									<svg>
+										<use
+											href="src/img/icons.svg#icon-upload-cloud"
+										></use>
+									</svg>
+									<span>Upload</span>
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
