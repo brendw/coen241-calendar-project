@@ -1,28 +1,29 @@
 # sample data
+use calendarApp;
 
 INSERT INTO Users (username, password, email)
 VALUES ('seanchoi', 'pw', 'schoi@scu.edu');
 
 INSERT INTO Users (username, password, email)
-VALUES ('alice', 'pw', 'atam@scu.edu');
+VALUES ("alice", 'pw', 'atam@scu.edu');
 
 INSERT INTO Users (username, password, email)
-VALUES ("lemontea", "pw", "ltea@scu.edu");
+VALUES ("lemontea", 'pw', "ltea@scu.edu");
 
 INSERT INTO Users (username, password, email)
-VALUES ("scu_sports", "pw", "sports@scu.edu");
+VALUES ("scu_sports", 'pw', "sports@scu.edu");
 
 INSERT INTO Users (username, password, email)
-VALUES ("performingarts", "pw", "perform@scu.edu");
+VALUES ("performingarts", 'pw', "perform@scu.edu");
 
 INSERT INTO Users (username, password, email)
-VALUES ("LeaveyBusiness", "pw", "business@scu.edu");
+VALUES ("LeaveyBusiness", 'pw', "business@scu.edu");
 
 INSERT INTO Users (username, password, email)
-VALUES ("clayton_wiley", "pw", "cdwiley@scu.edu");
+VALUES ("clayton_wiley", 'pw', "cdwiley@scu.edu");
 
 INSERT INTO Users (username, password, email)
-VALUES ("Katy Korsmeyer", "pw", "kkorsmeyer@scu.edu");
+VALUES ("Katy Korsmeyer", 'pw', "kkorsmeyer@scu.edu");
 
 INSERT INTO Events (event_name, publisher, image, description, location, event_date, start_time, end_time, valid, url, tag)
 VALUES ("Cloud Computing Study Session", "seanchoi", "https://cloudacademy.com/wp-content/uploads/2017/01/2022-10-14-Blog-Feature-What-is-Cloud-Computing-1-1200x620.png", "Last class! Time to study for final!", "Library", "2023-03-15", "19:00:00", "21:00:00", 1, "https://www.scu.edu/library/hours/", "Academic");
